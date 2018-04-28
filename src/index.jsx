@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import appReducer from './reducers/appreducer.js';
+import achievmentReducer from './reducers/achievmentReducer.js';
 import AppComponent from './app';
 
 const store = createStore(combineReducers({
-  appReducer,
+  achievmentReducer,
   form: formReducer,
 }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && // eslint-disable-line no-underscore-dangle
