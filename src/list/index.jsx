@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import config from '../config';
 
 import View from './view';
 
@@ -11,25 +10,24 @@ class List extends React.Component {
     this.loadAchievments = this.loadAchievments.bind(this);
   }
 
-  componentDidMount() {
-    this.loadAchievments();
+
+  async componentWillReceiveProps(nextProps) {
+    await this.loadAchievments(nextProps);
   }
 
-  async componentWillReceiveProps() {
-    await this.loadAchievments();
-    this.props.dispatch({ type: 'RELOADED' });
-  }
-
-  async loadAchievments() {
-    const res = await fetch(`${config.baseUrl}/achievments`);
+  async loadAchievments(props) {
+    const res = await fetch(`${props.config.baseUrl}/achievments`);
     const achievs = await res.json();
     this.setState({ achievs });
   }
-
 
   render() {
     return <View achievments={this.state.achievs} />;
   }
 }
 
-export default connect(state => ({ ...state.achievmentReducer }))(List);
+export default connect(
+  state => ({
+    ...state.achievmentReducer,
+    config: state.configReducer,
+  }))(List);

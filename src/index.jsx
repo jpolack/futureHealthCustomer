@@ -6,9 +6,11 @@ import { reducer as formReducer } from 'redux-form';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 
 import achievmentReducer from './reducers/achievmentReducer.js';
+import configReducer from './reducers/configReducer.js';
 import AppComponent from './app';
 
 const store = createStore(combineReducers({
+  configReducer,
   achievmentReducer,
   form: formReducer,
 }),
