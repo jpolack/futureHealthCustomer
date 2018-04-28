@@ -17,6 +17,7 @@ class Form extends React.Component {
   async onSend(values) {
     const sendableValues = {
       ...values,
+      points: isNaN(values.points) ? 0 : values.points * 1.0,
       value: isNaN(values.value) ? 0 : values.value * 1.0,
     };
     const res = await fetch('http://localhost:8000/admin/achievment', {

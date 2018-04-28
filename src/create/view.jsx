@@ -66,12 +66,17 @@ export const Form = ({ handleSubmit, onSend }) => {
             name="description" label="Description" component={TextFieldWrapper} multiline
           />
         </Grid>
-        <Grid xs={6} item>
+        <Grid xs={4} item>
+          <Field
+            name="points" label="Points" component={TextFieldWrapper}
+          />
+        </Grid>
+        <Grid xs={4} item>
           <Field
             name="value" label="Value" component={TextFieldWrapper}
           />
         </Grid>
-        <Grid xs={6} item>
+        <Grid xs={4} item>
           <Field
             name="unit" label="Unit" component={SelectFieldWrapper}
           >
