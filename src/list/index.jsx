@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import config from '../config';
 
 import View from './view';
 
@@ -20,7 +21,7 @@ class List extends React.Component {
   }
 
   async loadAchievments() {
-    const res = await fetch('http://localhost:8000/admin/achievments');
+    const res = await fetch(`${config.baseUrl}/achievments`);
     const achievs = await res.json();
     this.setState({ achievs });
   }

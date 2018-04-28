@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Snackbar } from 'material-ui';
 import { connect } from 'react-redux';
+import config from '../config';
 
 import View from './view';
 
@@ -20,7 +21,7 @@ class Form extends React.Component {
       points: isNaN(values.points) ? 0 : values.points * 1.0,
       value: isNaN(values.value) ? 0 : values.value * 1.0,
     };
-    const res = await fetch('http://localhost:8000/admin/achievment', {
+    const res = await fetch(`${config.baseUrl}/achievment`, {
       method: 'POST',
       body: JSON.stringify(sendableValues),
     });

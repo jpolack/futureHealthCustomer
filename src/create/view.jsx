@@ -86,7 +86,7 @@ export const Form = ({ handleSubmit, onSend }) => {
           </Field>
         </Grid>
         <Grid xs={12} item>
-          <Button variant="raised" color="primary" type="submit">Send</Button>
+          <Button variant="raised" color="secondary" type="submit">Send</Button>
         </Grid>
       </Grid>
     </form>
